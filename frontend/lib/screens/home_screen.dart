@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gym_note/screens/workout_plan_editor_screen.dart';
 import 'package:gym_note/tabs/historical_tab.dart';
 import 'package:gym_note/tabs/dashboard_tab.dart';
 import 'package:gym_note/tabs/setting_tab.dart';
@@ -122,7 +123,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   foregroundColor: Colors.white,
                   shape: CircleBorder(),
                   backgroundColor: primaryColor,
-                  onPressed: () {},
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => WorkoutPlanEditorScreen(addOrEdit: "add",)),
+                  ),
                   child: const Icon(Icons.add, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -133,7 +137,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(_subTitle, textAlign: TextAlign.start, style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18.0)),
+            Text(
+              _subTitle,
+              textAlign: TextAlign.start,
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18.0),
+            ),
             Divider(),
             Expanded(child: _childContent),
           ],
